@@ -34,11 +34,11 @@ function createTeams(NumTeams) {
 
 function splitTeams() {
   const container = document.getElementById("container");
-  const randomColor0 = randomColor();
   container.innerHTML = "";
   container.style.fontSize = "60px";
   container.style.fontWeight = "bold";
   container.addEventListener("click", function () {
+    let color = randomColor({ format: "rgb" });
     let random = Math.floor(Math.random() * NumTeams);
 
     console.log("clicked");
@@ -58,13 +58,11 @@ function splitTeams() {
       container.innerHTML = "DONE";
     } else {
       if (teams[random].length < +NumPerTeam) {
-        container.innerHTML.style.backgroundColor = randomColor();
         container.innerHTML = random + 1;
         teams[random].push("x");
       } else if (teams[random].length === +NumPerTeam) {
         container.innerHTML = "";
         container.innerHTML = `Team Full, click again`;
-        container.innerHTML.style.backgroundColor = randomColor();
       }
     }
 
