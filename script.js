@@ -58,11 +58,13 @@ function splitTeams() {
       container.innerHTML = "DONE";
     } else {
       if (teams[random].length < +NumPerTeam) {
+        container.innerHTML.style.backgroundColor = randomColor();
         container.innerHTML = random + 1;
         teams[random].push("x");
       } else if (teams[random].length === +NumPerTeam) {
         container.innerHTML = "";
         container.innerHTML = `Team Full, click again`;
+        container.innerHTML.style.backgroundColor = randomColor();
       }
     }
 
